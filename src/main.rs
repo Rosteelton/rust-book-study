@@ -1,8 +1,8 @@
 mod guess_game;
-mod chapter_4;
+mod chapter_5_struct;
 
 fn main() {
     println!("Hello, world!");
 
-    chapter_4::run();
+    chapter_5_struct::run();
 }

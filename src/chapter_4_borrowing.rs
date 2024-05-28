@@ -50,7 +50,6 @@ pub fn run() {
 
     //MUTABLE REFERENCE
     fn work_and_modify_value(x: &mut String) -> &String { //& - use reference to the value without ownership
-        //we can't modify value inside this function because we are not owner of it.
         println!("{x} inside function");
         x.push_str("new part");
         x
