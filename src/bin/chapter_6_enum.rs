@@ -27,7 +27,7 @@ impl Message {
     }
 }
 
-pub fn run() {
+fn main() {
     let a1 = Message::Quit;
     println!("is quit {}", Message::is_quit(&a1));
     println!("is quit 2 {}", Message::is_quit_2(&a1));

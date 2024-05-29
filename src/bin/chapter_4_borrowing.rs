@@ -1,4 +1,4 @@
-pub fn run() {
+fn main() {
     //OWNERSHIP
 
     let s1 = String::from("hello");

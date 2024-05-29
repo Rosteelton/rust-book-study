@@ -1,4 +1,4 @@
-pub fn run() {
+fn main() {
     /**
     CONST
     always immutable

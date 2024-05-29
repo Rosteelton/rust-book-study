@@ -31,7 +31,7 @@ impl User {
     }
 }
 
-pub fn run() {
+fn main() {
     let user1 = User::init_user(String::from("qwerty"), 32);
     let user2 = User {
         is_active: true,
