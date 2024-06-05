@@ -49,6 +49,7 @@ fn main() {
     println!("{b1}");// in that case we can use b1
 
     //MUTABLE REFERENCE
+    //здесь неявно задается lifetime внутри функции - input lifetime = output lifetime = 'a
     fn work_and_modify_value(x: &mut String) -> &String { //& - use reference to the value without ownership
         println!("{x} inside function");
         x.push_str("new part");
