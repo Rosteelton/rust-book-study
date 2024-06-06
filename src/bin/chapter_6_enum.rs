@@ -1,6 +1,6 @@
 //ENUMS
 
-enum Message {
+pub enum Message {
     Quit,
     Move { x: i32, y: i32 },
     Write(String),
