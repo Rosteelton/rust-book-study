@@ -1,10 +1,15 @@
-mod chapter_7_modules;
 
+mod chapter_7_modules;
 pub use crate::chapter_7_modules::front_of_house::hosting;
+mod chapter_12_lib;
+
+pub use chapter_12_lib::*;
+
 
 pub fn eat_at_restaurant() {
     hosting::add_to_waitlist();
 }
+
 
 
 //duplicated for test reason
