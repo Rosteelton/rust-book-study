@@ -1,4 +1,4 @@
-use rust_book_study::Message;
+use chapters::Message;
 
 #[test]
 fn check_is_quit() {
@@ -19,12 +19,12 @@ fn check_is_quit() {
 
 //#[should_panic(expected = "less than or equal to 100")]
 
-//cargo test by default run all test in parallel (you can use <cargo test -- --test-threads=1>)
-//for specifying test name - <cargo test one_hundred>
+//cargo tests by default run all tests in parallel (you can use <cargo tests -- --tests-threads=1>)
+//for specifying tests name - <cargo tests one_hundred>
 
-//if we write test in the same file as code you need:
-//#[cfg(test)]
+//if we write tests in the same file as code you need:
+//#[cfg(tests)]
 // mod tests {} - to exclude this module from result build file.
 
-//so tests folder if for integration tests. They won't run if any unit test failed
-//cargo test --test integration_test
+//so tests folder if for integration tests. They won't run if any unit tests failed
+//cargo tests --tests integration_test

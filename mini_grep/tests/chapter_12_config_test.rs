@@ -1,4 +1,4 @@
-use rust_book_study::{search_ignore_case, Config};
+use mini_grep::*;
 
 #[test]
 fn should_create_config() {
@@ -10,7 +10,7 @@ fn should_create_config() {
     ];
 
     assert_eq!(
-        Config::read_from_env(&args).unwrap(),
+        Config::read_from_env(args.into_iter()).unwrap(),
         Config {
             file_path: "String3".into(),
             query: "String2".into(),

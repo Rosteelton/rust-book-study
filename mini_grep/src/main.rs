@@ -1,10 +1,9 @@
+use mini_grep::*;
 use std::env;
 use std::env::Args;
 
-use rust_book_study::*;
-
 //to run:
-//cargo run --bin chapter_12_IO_project -- YOU poem.txt IGNORE_CASE
+//cargo run -p mini_grep -- YOU poem.txt IGNORE_CASE
 fn main() -> Result<(), String> {
     let args: Args = env::args(); //it's iterator
 
