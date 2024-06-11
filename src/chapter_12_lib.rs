@@ -7,18 +7,15 @@ pub struct Config {
 }
 
 impl Config {
-    pub fn read_from_env(env_vars: &Vec<String>) -> Result<Config, String> {
-        if env_vars.len() < 3 {
-            return Err("not enough arguments".to_string());
-        }
+    pub fn read_from_env(mut args: impl Iterator<Item = String>) -> Result<Config, String> {
+        //mut - because iterating is mutable op
+        args.next();
 
-        let query = env_vars.get(1).ok_or("Can't find query arg".to_string())?;
+        let query = args.next().ok_or("Can't find query arg".to_string())?;
 
-        let file_path = env_vars
-            .get(2)
-            .ok_or("Can't find file_path arg".to_string())?;
+        let file_path = args.next().ok_or("Can't find file_path arg".to_string())?;
 
-        let ignore_case = match env_vars.get(3) {
+        let ignore_case = match args.next() {
             Some(str) => {
                 if str == "IGNORE_CASE" {
                     true
@@ -35,8 +32,8 @@ impl Config {
         );
 
         Ok(Config {
-            query: query.to_string(),
-            file_path: file_path.to_string(),
+            query,
+            file_path,
             ignore_case,
         })
     }
@@ -47,22 +44,17 @@ pub fn read_file(file_path: &String) -> Result<String, String> {
 }
 
 pub fn search<'a>(query: &str, content: &'a str) -> Vec<&'a str> {
-    let mut result: Vec<&str> = vec![];
-    for line in content.lines() {
-        if line.contains(query) {
-            result.push(line);
-        }
-    }
-    result
+    content
+        .lines()
+        .filter(|line| line.contains(query))
+        .collect()
 }
 
 pub fn search_ignore_case<'a>(query: &str, content: &'a str) -> Vec<&'a str> {
     let query_ignore_case = query.to_lowercase();
-    let mut result: Vec<&str> = vec![];
-    for line in content.lines() {
-        if line.to_lowercase().contains(&query_ignore_case) {
-            result.push(line);
-        }
-    }
-    result
+
+    content
+        .lines()
+        .filter(|line| line.to_lowercase().contains(&query_ignore_case))
+        .collect()
 }

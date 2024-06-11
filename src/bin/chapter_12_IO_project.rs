@@ -1,13 +1,14 @@
 use std::env;
+use std::env::Args;
 
 use rust_book_study::*;
 
 //to run:
 //cargo run --bin chapter_12_IO_project -- YOU poem.txt IGNORE_CASE
 fn main() -> Result<(), String> {
-    let args: Vec<String> = env::args().collect();
+    let args: Args = env::args(); //it's iterator
 
-    let config = Config::read_from_env(&args)?;
+    let config = Config::read_from_env(args)?; //pass ownership due to we need to iterate
 
     let content = read_file(&config.file_path)?;
 
