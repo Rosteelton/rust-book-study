@@ -1,6 +1,7 @@
 [workspace]
 members = [
     "mini_grep",
-    "chapters"
+    "chapters",
+    "oop_state_pattern"
 ]
 resolver = "2"
