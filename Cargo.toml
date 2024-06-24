@@ -2,6 +2,7 @@
 members = [
     "mini_grep",
     "chapters",
-    "oop_state_pattern"
+    "oop_state_pattern",
+    "server"
 ]
 resolver = "2"
